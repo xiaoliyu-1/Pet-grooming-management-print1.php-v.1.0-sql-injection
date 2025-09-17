@@ -29,7 +29,7 @@
 
 ## Root Cause
 
-- A SQL injection vulnerability was found in the 'print1.php' file of the 'Pet grooming management' project. The reason for this issue is that attackers inject malicious code from the parameter "sql","sql2" and use it directly in SQL queries without the need for appropriate cleaning or validation. This allows attackers to forge input values, thereby manipulating SQL queries and performing unauthorized operations.
+- A SQL injection vulnerability was found in the 'print1.php' file of the 'Pet grooming management' project. The reason for this issue is that attackers inject malicious code from the parameter "sql" and use it directly in SQL queries without the need for appropriate cleaning or validation. This allows attackers to forge input values, thereby manipulating SQL queries and performing unauthorized operations.
 
 ## Impact
 
@@ -39,9 +39,7 @@
 
 - During the security review of "Pet grooming management", discovered a critical SQL injection vulnerability in the "print1.php" file. This vulnerability stems from insufficient user input validation of the 'sql' parameter, allowing attackers to inject malicious SQL queries. Therefore, attackers can gain unauthorized access to databases, modify or delete data, and access sensitive information. Immediate remedial measures are needed to ensure system security and protect data integrity.
 
-# Login or authorization is required to exploit this vulnerability
-1、Log in to the system using the default password [mdkhairnar92@gmail.com](mailto:mdkhairnar92@gmail.com): admin
-2、By examining the /admin/print1.php code, it was discovered that the sql and sql2 parameter was concatenated in the SQL statement
+# No login or authorization is required to exploit this vulnerability
 
 # Vulnerability details and POC
 
@@ -54,7 +52,7 @@
 
 ## Vulnerability location:
 
-- 'sql','sql2' parameter
+- 'sql' parameter
 
 ## Payload:
 
@@ -104,7 +102,6 @@ Sec-Fetch-User: ?1
 Sec-Fetch-Dest: document
 Accept-Encoding: gzip, deflate, br
 Accept-Language: en-US,en;q=0.9
-Cookie: PHPSESSID=9mjrub6b6jfcfhk0lv26kugff3
 Connection: close
 
 ```
